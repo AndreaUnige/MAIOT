@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PassaggioActivities</string>
+    <string name="STR_TV_MESSAGGIO">Passaggio dati tra Activities</string>
+
+    <string name="LAUNCH_ACTIVITY">com.maiot.passaggioactivities.AnotherActivity</string>
+    <string name="LABEL_MESSAGE">LABEL_MESSAGE</string>
+
+    <string name="LAUNCH_ACTIVITY_FOR_RESULTS">com.maiot.passaggioactivities.AnotherActivity4Results</string>
+    <string name="LABEL_MESSAGE_FOR_RESULTS">LABEL_MESSAGE_FOR_RESULTS</string>
+    <string name="LABEL_MESSAGE_RETURN">LABEL_MESSAGE_RETURN</string>
+</resources>
