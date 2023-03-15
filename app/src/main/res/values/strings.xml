@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BroadcastReceiver</string>
+
+    <string name="ACTION_BR_A1">com.maiot.broadcastreceiver.BRs.MyBroadcastReceiver</string>
+    <string name="LABEL_MESSAGGIO">LABEL_MESSAGGIO</string>
+</resources>
