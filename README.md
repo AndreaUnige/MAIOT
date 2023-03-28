@@ -11,9 +11,8 @@ __Software disponibile:__
   - Passaggio dati tra Activities: scopo di questa App è illustrare le diverse modalità con cui Activities differenti possono comunicare e scambiare dati; Link: https://github.com/AndreaUnige/MAIOT/tree/PassaggioTraActivities
   - Broadcast Receiver: semplice App che fornisce un semplice esempio del funzionamento di un Broadcast Receiver. Link: https://github.com/AndreaUnige/MAIOT/tree/BroadcastReceiver
   - Accelerometro: semplice App mono-activity che aggancia il sensore accelerometrico del telefono e mostra in tempo reale (tramite TextViews) i valori di accelerazione lungo i 3 assi (x, y, z) espressi in m/s^2. Link: https://github.com/AndreaUnige/MAIOT/tree/Accelerometro
-  - AudioRecorder: App mono-activity che fornisce implementa un registratore audio. All'avvio del registratore vengono acquisiti campioni PCM (16 bit), disponibili come array di short all'interno del codice, successivamente salvati dentro un file .wav.
-  Nota: l'implementazione NON PREVEDE l'uso di AsyncTask ma solo di Thread. Per la versione con AsyncTask vedi [qui](https://2022.aulaweb.unige.it/mod/folder/view.php?id=112359)
-  Link: https://github.com/AndreaUnige/MAIOT/tree/AudioRecorder
+  - AudioRecorder: App mono-activity che fornisce implementa un registratore audio. All'avvio del registratore vengono acquisiti campioni PCM (16 bit), disponibili come array di short all'interno del codice, successivamente salvati dentro un file .wav. Link: https://github.com/AndreaUnige/MAIOT/tree/AudioRecorder
+Nota: l'implementazione NON PREVEDE l'uso di AsyncTask ma solo di Thread. Per la versione con AsyncTask vedi [qui](https://2022.aulaweb.unige.it/mod/folder/view.php?id=112359)
   
 
 __Disclaimer:__
