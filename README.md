@@ -13,7 +13,7 @@ __Software disponibile:__
   - Accelerometro: semplice App mono-activity che aggancia il sensore accelerometrico del telefono e mostra in tempo reale (tramite TextViews) i valori di accelerazione lungo i 3 assi (x, y, z) espressi in m/s^2. Link: https://github.com/AndreaUnige/MAIOT/tree/Accelerometro
   - AudioRecorder: App mono-activity che fornisce implementa un registratore audio. All'avvio del registratore vengono acquisiti campioni PCM (16 bit), disponibili come array di short all'interno del codice, successivamente salvati dentro un file .wav. Link: https://github.com/AndreaUnige/MAIOT/tree/AudioRecorder
 Nota: l'implementazione NON PREVEDE l'uso di AsyncTask ma solo di Thread. Per la versione con AsyncTask vedi [qui](https://2022.aulaweb.unige.it/mod/folder/view.php?id=112359)
-  
+  - Service: App mono-activity che illustra i principi basi di un _Service_. Vengono descritti ed evidenziati i principali funzionamenti degli _Started Services_ (Foreground e Background) e dei _Bounded Services_. Fare riferimento alla guida Android disponibile [qui](https://developer.android.com/guide/components/services). Link: https://github.com/AndreaUnige/MAIOT/tree/Service
 
 __Disclaimer:__
 Tutto il codice del seguente repo è rilasciato secondo la licenza GNU General Public License (GNU GPL) 3.0.
