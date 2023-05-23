@@ -22,10 +22,13 @@
 
         <service android:name=".services.MyForegroundService"></service>
         <service android:name=".services.MyBackgroundService"></service>
+        <service android:name=".services.MyBoundedService"></service>
 
     </application>
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"></uses-permission>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
 
 
 </manifest>

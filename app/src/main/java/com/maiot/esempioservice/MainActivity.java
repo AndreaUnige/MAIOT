@@ -2,6 +2,7 @@ package com.maiot.esempioservice;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.maiot.esempioservice.services.MyBackgroundService;
+import com.maiot.esempioservice.services.MyBoundedService;
 import com.maiot.esempioservice.services.MyForegroundService;
+import com.maiot.esempioservice.services.MyServiceConnection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bttBindService = null, bttGetBoundedServiceStatus = null;
 
     private TextView tvBoundedServiceStatus = null;
+    private MyServiceConnection serviceConnection = new MyServiceConnection();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
         startBackgroundService();
         stopBackgroundService();
+
+        startBoundedService();
+        updateBoundedServiceStatus();
     }
 
     private void startForegroundService() {
@@ -44,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
             else{
                 Log.i(TAG, "MyForeground service already running");
             }
-
         });
     }
 
@@ -72,6 +78,25 @@ public class MainActivity extends AppCompatActivity {
         bttStopBackground = findViewById(R.id.bttStopBackground);
         bttStopBackground.setOnClickListener( (v) -> {
             stopService(new Intent(this, MyBackgroundService.class));
+        });
+    }
+
+    private void startBoundedService () {
+        bttBindService = findViewById(R.id.bttConnectBoundedService);
+        bttBindService.setOnClickListener( (v) -> {
+            Intent intent = new Intent(this, MyBoundedService.class);
+            bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+        });
+    }
+
+    private void updateBoundedServiceStatus () {
+        bttGetBoundedServiceStatus = findViewById(R.id.bttGetServiceStatus);
+        tvBoundedServiceStatus = findViewById(R.id.tvBoundedServiceStatus);
+
+        bttGetBoundedServiceStatus.setOnClickListener( (v) -> {
+            int status = serviceConnection.getServiceStatus();
+            Log.i(TAG, "Service status: " + status);
+            tvBoundedServiceStatus.setText("Service status: " + status);
         });
     }
 }

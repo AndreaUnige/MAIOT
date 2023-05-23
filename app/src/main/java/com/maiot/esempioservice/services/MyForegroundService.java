@@ -64,8 +64,8 @@ public class MyForegroundService extends Service {
                 NOTIFICATION_CHANNEL_ID,
                 NotificationManager.IMPORTANCE_LOW
         );
-
         getSystemService(NotificationManager.class).createNotificationChannel(channel);
+
         Notification.Builder notification = new Notification.Builder(this, NOTIFICATION_CHANNEL_ID)
                 .setContentText("MyForegroundService is running")
                 .setContentTitle("Service is active")
