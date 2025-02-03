@@ -1,10 +1,6 @@
 # Repository MAIOT
 Repository del materiale software (codice Android, java-based) relativo alle lezioni dell'insegnamento _APP MULTIMEDIALI E INTERNET OF THINGS_ (cod. 84490), CORSO DI LAUREA - INGEGNERIA ELETTRONICA E TECNOLOGIE DELL'INFORMAZIONE.
 
-Link AulaWeb Insegnamento: https://2022.aulaweb.unige.it/course/view.php?id=6167
-
-__Anno Accademico:__ 2022 / 2023
-
 __Software disponibile:__
   - Empty Activity: semplice App di _Hello World_; Link: https://github.com/AndreaUnige/MAIOT/tree/EmptyActivity
   - Esempio Views: App che illustra i principi fondamentali relativi alla gestione del layout e dei principali Widgets; Link: https://github.com/AndreaUnige/MAIOT/tree/EsempioViews
@@ -16,7 +12,9 @@ Nota: l'implementazione NON PREVEDE l'uso di AsyncTask ma solo di Thread. Per la
   - Service: App mono-activity che illustra i principi basi di un _Service_. Vengono descritti ed evidenziati i principali funzionamenti degli _Started  Services_ (Foreground e Background) e dei _Bounded Services_. Fare riferimento alla guida Android disponibile [qui](https://developer.android.com/guide/components/services). Link: https://github.com/AndreaUnige/MAIOT/tree/Service
   - WiFiScanner: App mono-activity che illustra come effettuare scansioni WiFi recuperando informazioni come la RSS, MAC Address e SSID. Link: https://github.com/AndreaUnige/MAIOT/tree/WifiScanner
   - MQTT: App che che illustra i principi del protocollo MQTT. Prevede sue modalità di funzionamento: _Publisher_ e _Subscriber_. Link: https://github.com/AndreaUnige/MAIOT/tree/MQTT
+  - Edge-AI: App che che illustra come utilizzare una rete neurale <i>on the edge</i> (ovvero mettendola onboard al telefono). Link:
 
+    
 __Disclaimer:__
 Tutto il codice del seguente repo è rilasciato secondo la licenza GNU General Public License (GNU GPL) 3.0.
 Lo scopo di questa licenza è di rendere un manuale, un testo o altri documenti scritti "liberi" nel senso di assicurare a tutti la libertà effettiva di copiarli e redistribuirli, con o senza modifiche, a fini di lucro o no. In secondo luogo questa licenza prevede per autori ed editori il modo per ottenere il giusto riconoscimento del proprio lavoro, preservandoli dall'essere considerati responsabili per modifiche apportate da altri. Questa licenza è un "copyleft": ciò vuol dire che i lavori che derivano dal documento originale devono essere ugualmente liberi.
