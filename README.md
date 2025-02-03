@@ -12,7 +12,7 @@ Nota: l'implementazione NON PREVEDE l'uso di AsyncTask ma solo di Thread. Per la
   - Service: App mono-activity che illustra i principi basi di un _Service_. Vengono descritti ed evidenziati i principali funzionamenti degli _Started  Services_ (Foreground e Background) e dei _Bounded Services_. Fare riferimento alla guida Android disponibile [qui](https://developer.android.com/guide/components/services). Link: https://github.com/AndreaUnige/MAIOT/tree/Service
   - WiFiScanner: App mono-activity che illustra come effettuare scansioni WiFi recuperando informazioni come la RSS, MAC Address e SSID. Link: https://github.com/AndreaUnige/MAIOT/tree/WifiScanner
   - MQTT: App che che illustra i principi del protocollo MQTT. Prevede sue modalità di funzionamento: _Publisher_ e _Subscriber_. Link: https://github.com/AndreaUnige/MAIOT/tree/MQTT
-  - Edge-AI: App che che illustra come utilizzare una rete neurale <i>on the edge</i> (ovvero mettendola onboard al telefono). Link:
+  - Edge-AI: App che che illustra come utilizzare una rete neurale <i>on the edge</i> (ovvero mettendola onboard al telefono). Link: https://github.com/AndreaUnige/MAIOT/tree/EdgeAI_NeuralNet
 
     
 __Disclaimer:__
