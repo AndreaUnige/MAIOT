@@ -1,0 +1,19 @@
+#Mon Feb 03 15:35:57 CET 2025
+base.0=/media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/NEURAL_NET__IMAGE_RECOGNITION/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/NEURAL_NET__IMAGE_RECOGNITION/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.2=/media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/NEURAL_NET__IMAGE_RECOGNITION/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
+base.3=/media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/NEURAL_NET__IMAGE_RECOGNITION/app/build/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex
+base.4=/media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/NEURAL_NET__IMAGE_RECOGNITION/app/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex
+base.5=/media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/NEURAL_NET__IMAGE_RECOGNITION/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+path.0=classes.dex
+path.1=0/classes.dex
+path.2=11/classes.dex
+path.3=6/classes.dex
+path.4=9/classes.dex
+path.5=classes2.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
+renamed.2=classes3.dex
+renamed.3=classes4.dex
+renamed.4=classes5.dex
+renamed.5=classes6.dex

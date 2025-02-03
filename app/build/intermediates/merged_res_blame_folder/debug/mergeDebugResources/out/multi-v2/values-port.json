@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.andrea.neuralnetimagerecognition.app-mergeDebugResources-29:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "/home/andrea/.gradle/caches/transforms-3/d7f3a01bc368c11bc54c0485315e7fa8/transformed/appcompat-1.7.0/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

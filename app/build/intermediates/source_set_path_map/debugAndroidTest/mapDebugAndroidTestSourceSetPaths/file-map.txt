@@ -1,0 +1,5 @@
+com.andrea.neuralnetimagerecognition.test.app-core-1.6.1-0 /home/andrea/.gradle/caches/transforms-3/efb8c7a49f7c302631f6221064af1611/transformed/core-1.6.1/res
+com.andrea.neuralnetimagerecognition.test.app-androidTest-1 /media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/NEURAL_NET__IMAGE_RECOGNITION/app/build/generated/res/resValues/androidTest/debug
+com.andrea.neuralnetimagerecognition.test.app-mergeDebugAndroidTestResources-2 /media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/NEURAL_NET__IMAGE_RECOGNITION/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.andrea.neuralnetimagerecognition.test.app-mergeDebugAndroidTestResources-3 /media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/NEURAL_NET__IMAGE_RECOGNITION/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.andrea.neuralnetimagerecognition.test.app-debugAndroidTest-4 /media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/NEURAL_NET__IMAGE_RECOGNITION/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="OTHER_ACTIVITY">android.intent.action.OtherActivity</string>
+    <string name="app_name">NeuralNetImageRecognition</string>
+    <style name="Base.Theme.NeuralNetImageRecognition" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.NeuralNetImageRecognition" parent="Base.Theme.NeuralNetImageRecognition"/>
+</resources>

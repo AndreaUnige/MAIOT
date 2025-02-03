@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NeuralNetImageRecognition</string>
+    <string name="OTHER_ACTIVITY">android.intent.action.OtherActivity</string>
+</resources>
