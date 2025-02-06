@@ -1,0 +1,6 @@
+com.maiot.audiorecorder.test.app-jetified-core-1.5.0-0 /home/andrea/.gradle/caches/transforms-3/0b5badf7fade70ff245aa2adc82a4568/transformed/jetified-core-1.5.0/res
+com.maiot.audiorecorder.test.app-jetified-annotation-experimental-1.3.0-1 /home/andrea/.gradle/caches/transforms-3/4e507413af5f3d3f2ccec8faf9fb58f3/transformed/jetified-annotation-experimental-1.3.0/res
+com.maiot.audiorecorder.test.app-androidTest-2 /media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/AudioRecorder/app/build/generated/res/resValues/androidTest/debug
+com.maiot.audiorecorder.test.app-mergeDebugAndroidTestResources-3 /media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/AudioRecorder/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.maiot.audiorecorder.test.app-mergeDebugAndroidTestResources-4 /media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/AudioRecorder/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.maiot.audiorecorder.test.app-merged_res-5 /media/andrea/ANDREA_DATA/WORK/Didattica/MAFI/CODE/IN_AULA/AudioRecorder/app/build/intermediates/merged_res/debugAndroidTest
