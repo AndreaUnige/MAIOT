@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 
 import com.maiot.asyncexample.interfaces.IDownload;
+import com.maiot.asyncexample.misc.ImagesURLs;
+import com.maiot.asyncexample.processing.InBackgroundTask;
 
 public class MainActivity extends AppCompatActivity implements IDownload {
 
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements IDownload {
     Button bttSequential, bttParallel;
     ImageView iv1, iv2, iv3, iv4, iv5, iv6, iv7, iv8, iv9;
 
-    BackTask myBackTask = null;
+    InBackgroundTask myInBackgroundTask = null;
 
     long startTimeInMillis, endTimeInMillis;
 
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements IDownload {
 
         initViews();
 
-        myBackTask = new BackTask(this);
+        myInBackgroundTask = new InBackgroundTask(this);
 
         bttSequential.setOnClickListener(v -> {
             clearAllImages();
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements IDownload {
             bttParallel.setEnabled(false);
 
             startTimeInMillis = System.currentTimeMillis();
-            myBackTask.doSequentialDownload(ImagesURLs.URLs);
+            myInBackgroundTask.doSequentialDownload(ImagesURLs.URLs);
         });
 
 
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements IDownload {
             bttParallel.setEnabled(false);
 
             startTimeInMillis = System.currentTimeMillis();
-            myBackTask.doParallelDownload(ImagesURLs.URLs);
+            myInBackgroundTask.doParallelDownload(ImagesURLs.URLs);
         });
 
     }

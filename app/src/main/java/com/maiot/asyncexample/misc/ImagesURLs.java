@@ -1,4 +1,4 @@
-package com.maiot.asyncexample;
+package com.maiot.asyncexample.misc;
 
 public class ImagesURLs {
 

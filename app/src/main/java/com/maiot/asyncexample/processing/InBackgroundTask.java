@@ -1,4 +1,4 @@
-package com.maiot.asyncexample;
+package com.maiot.asyncexample.processing;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -6,12 +6,12 @@ import android.util.Log;
 
 import com.maiot.asyncexample.interfaces.IDownload;
 
-public class BackTask implements IDownload {
+public class InBackgroundTask implements IDownload {
 
     private final String TAG = "BackTask";
     private IDownload iDownload;
 
-    public BackTask(Activity activity)
+    public InBackgroundTask(Activity activity)
     {
         Log.i(TAG, "BackTask()");
         this.iDownload = (IDownload) activity;
@@ -25,7 +25,7 @@ public class BackTask implements IDownload {
 
         new Thread(() -> {
             for (String urlSingleImage : urlImagesToDownload)
-                new DownloadImage(urlSingleImage, this).run();
+                new DownloadAndRotateImage(urlSingleImage, this).run();
         }).start();
 }
 
@@ -36,7 +36,7 @@ public class BackTask implements IDownload {
         onPreExecute();
 
         for (String urlSingleImage : urlImagesToDownload)
-            new Thread(new DownloadImage(urlSingleImage, this)).start();
+            new Thread(new DownloadAndRotateImage(urlSingleImage, this)).start();
     }
 
     private void onPreExecute() {

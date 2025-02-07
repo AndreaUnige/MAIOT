@@ -1,4 +1,4 @@
-package com.maiot.asyncexample;
+package com.maiot.asyncexample.processing;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class DownloadImage implements Runnable {
+public class DownloadAndRotateImage implements Runnable {
 
     private String urlSingleImage;
     private IDownload iDownload;
@@ -23,7 +23,7 @@ public class DownloadImage implements Runnable {
     private final Matrix matrix = new Matrix();
     private final int NUMBER_OF_ROTATIONS = 100;
 
-    public DownloadImage(String urlSingleImage, IDownload iDownload) {
+    public DownloadAndRotateImage(String urlSingleImage, IDownload iDownload) {
         this.urlSingleImage = urlSingleImage;
         this.iDownload = iDownload;
 
