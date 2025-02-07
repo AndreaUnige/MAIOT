@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BroadcastReceiverExample</string>
+
+    <string name="MY_INTENT_ACTION">com.maiot.broadcastreceiverexample.br.MyBroadcastReceiver</string>
+    <string name="MY_INTENT_LABEL">MESSAGE_LABEL</string>
+</resources>
