@@ -8,6 +8,8 @@ import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
@@ -29,8 +31,7 @@ public class Recorder {
     private AudioRecord audioRecord = null;
 
     private Context context;
-    private IRecording iRecording = null;
-    private Activity mainActivity = null;
+    private IRecording iRecording;
 
 
     public Recorder(Context context, int fsInHz, int recordingLengthInSec) {
@@ -43,9 +44,6 @@ public class Recorder {
 
         this.context = context;
         iRecording = (IRecording) context;
-        mainActivity = (Activity) context;
-
-
     }
 
     public void start() {
@@ -55,8 +53,9 @@ public class Recorder {
             doRecording(false);
             releaseRecorder();
 
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(() -> iRecording.onRecordingDone(audioData));
 
-            mainActivity.runOnUiThread( () -> {iRecording.onRecordingDone(audioData);});
         }).start();
     }
 

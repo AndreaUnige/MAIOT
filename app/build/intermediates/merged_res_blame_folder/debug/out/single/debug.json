@@ -4,12 +4,12 @@
         "source": "/home/andrea/.gradle/daemon/8.2/com.maiot.audiorecorder.app-main-35:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "/home/andrea/.gradle/daemon/8.2/com.maiot.audiorecorder.app-merged_res-33:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "/home/andrea/.gradle/daemon/8.2/com.maiot.audiorecorder.app-main-35:/mipmap-xhdpi/ic_launcher_round.webp"
-    },
-    {
         "merged": "/home/andrea/.gradle/daemon/8.2/com.maiot.audiorecorder.app-merged_res-33:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "/home/andrea/.gradle/daemon/8.2/com.maiot.audiorecorder.app-main-35:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/andrea/.gradle/daemon/8.2/com.maiot.audiorecorder.app-merged_res-33:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/andrea/.gradle/daemon/8.2/com.maiot.audiorecorder.app-main-35:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "/home/andrea/.gradle/daemon/8.2/com.maiot.audiorecorder.app-merged_res-33:/drawable_ic_launcher_foreground.xml.flat",
