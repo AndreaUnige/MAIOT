@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="ACTION_LAUNCH_ACTIVITY">com.maiot.moviessuggestor.result</string>
+    <string name="RESULT_LABEL">RESULT_LABEL</string>
+
+    <string name="app_name">MoviesSuggestor</string>
+</resources>
