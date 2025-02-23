@@ -72,12 +72,15 @@ La rispettiva App Android ha 27 _CheckBox_ (una per ogni feature) per permettere
 
 La request http viene effettuata tramite libreria _Volley_: https://google.github.io/volley/<br/><br/>
 
-Osservazioni:
+<b>Osservazioni:</b>
  - L'App effettua chiamate http (e non https) per semplicità. Per permetterlo, è stato inserito l'attributo _android:usesCleartextTraffic="true"_ nel _AndroidManifest.xml_.
- - La request http è fatta su un Thread parallelo.
+ - La request http è fatta su un Thread parallelo.<br/><br/>
 
 
-
+<b>Possibili sviluppi futuri:</b>
+ - Implementare il riconoscimento con features numeriche, ad esempio assegnando un valore tra 0 e 10 per ogni feature.
+ - Implementare la versione _weighted_ del K-NN.
+ - Usare altri classificatori (J-48, SVM, ecc..) per il riconoscimento del film <br/><br/>
 
 <b>Link Utili:</b><br/>
  - https://davidsbatista.net/blog/2017/04/01/document_classification/
