@@ -68,7 +68,7 @@ Slim (2014)", "score": 0.0}, {"title": "Cuckoo (2012/II) {Potato Party (#2.2)}",
 
 
 <h3>App Android</h3>
-La rispettiva App Android ha 27 _CheckBox_ (una per ogni feature) per permettere all'utente di settare i valori. E' presente anche una _EditText_ per selezionare manualmente il valore di _k_. Alla pressione del bottone _Submit_ l'app genera un json e "colpisce l'endpoint del server (al momento harcoded dentro la classe _Constants_ come "http://192.168.1.249:5000/recognize"). Il risultato restituito dal server viene poi recuperato e visualizzato in un'altra activity.<br/><br/>
+La rispettiva App Android ha 27 _CheckBox_ (una per ogni feature) per permettere all'utente di settare i valori. E' presente anche una _EditText_ per selezionare manualmente il valore di _k_. Alla pressione del bottone _Submit_ l'app genera un json e "colpisce l'endpoint del server (al momento harcoded dentro la classe _Constants_ come "http://192.168.1.249:5000/recognize"). Il risultato restituito dal server viene poi recuperato e visualizzato in un'altra activity formattato e renderizzato HTML.<br/><br/>
 
 La request http viene effettuata tramite libreria _Volley_: https://google.github.io/volley/<br/><br/>
 
