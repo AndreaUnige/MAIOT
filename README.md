@@ -14,6 +14,7 @@ Nota: l'implementazione NON PREVEDE l'uso di AsyncTask ma solo di Thread. Per la
   - __AsyncTask__: App mono-activity che illustra come effettuare operazioni tramite thread in background asincroni. Link: https://github.com/AndreaUnige/MAIOT/tree/AsyncWithThreads
   - __MQTT__: App che che illustra i principi del protocollo MQTT. Prevede sue modalità di funzionamento: _Publisher_ e _Subscriber_. Link: https://github.com/AndreaUnige/MAIOT/tree/MQTT
   - __Edge-AI__: App che che illustra come utilizzare una rete neurale <i>on the edge</i> (ovvero mettendola onboard al telefono). Link: https://github.com/AndreaUnige/MAIOT/tree/EdgeAI_NeuralNet
+- __WebServerPython 4 Movies__: Utilizzo di python per realizzare un semplice webserver. L'app interroga il server e si fa restituire tramite JSON una lista di film preferiti. Link: https://github.com/AndreaUnige/MAIOT/tree/WebServer_Python_MovieRecognizer
 
     
 __Disclaimer:__
