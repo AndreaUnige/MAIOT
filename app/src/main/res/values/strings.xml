@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PassaggioTraActivities</string>
+
+    <string name="ACTION_LAUNCH_ACTIVITY">com.maiot.passaggiotraactivities.AnotherActivity</string>
+
+    <string name="LABEL_FOR_ACTIVITY">LABEL_FOR_ACTIVITY</string>
+    <string name="LABEL_FOR_ACTIVITY_4_RESULT">LABEL_FOR_ACTIVITY_4_RESULT</string>
+    <string name="LABEL_FOR_BACK_PROPAGATION">LABEL_FOR_BACK_PROPAGATION</string>
+</resources>
