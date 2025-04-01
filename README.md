@@ -16,7 +16,7 @@ Android prevedeva una classe <i>ad-hoc</i> per operazioni in backgroud denominat
 
 <h3>URLS delle immagini da scaricare</h3>
 
-``afjkafg``
+``console.log ``
 
 <b>Link Utili:</b><br/>
  - https://developer.android.com/reference/android/os/AsyncTask
