@@ -27,6 +27,14 @@ Android prevedeva una classe <i>ad-hoc</i> per operazioni in backgroud denominat
             "https://images.unsplash.com/photo-1738762388661-f09b9b9b5df2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "https://plus.unsplash.com/premium_photo-1671017848638-a154949b71e1?q=80&w=1866&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     }; ``
+    
+    
+ 
+ ```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
 
 <b>Link Utili:</b><br/>
  - https://developer.android.com/reference/android/os/AsyncTask
