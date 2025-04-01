@@ -15,11 +15,11 @@ Il download avviene sempre (indipendentemente dal fatto che l'utente abbia scelt
 Android prevedeva una classe <i>ad-hoc</i> per operazioni in backgroud denominata AsyncTask che però ad oggi è deprecata. Sebbene ancora funzionante, è sconsigliato utilizzarla. Pertanto, l'app è implementata attraverso l'uso di Thread ed interfacce per la gestione delle callback.<br/><br/>
 
 <h3>URLS delle immagini da scaricare</h3>
-```sh
+\`\`\`sh
 cd dillinger
 npm i
 node app
-```
+\`\`\`
 
 <b>Link Utili:</b><br/>
  - https://developer.android.com/reference/android/os/AsyncTask
