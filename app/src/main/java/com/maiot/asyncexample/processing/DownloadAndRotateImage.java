@@ -27,7 +27,6 @@ public class DownloadAndRotateImage implements Runnable {
         this.urlSingleImage = urlSingleImage;
         this.iDownload = iDownload;
 
-
         matrix.postRotate(90);
     }
 
@@ -37,7 +36,7 @@ public class DownloadAndRotateImage implements Runnable {
         download_tryCatch();
         rotateIt(NUMBER_OF_ROTATIONS);
 
-        Handler handler = new Handler(Looper.getMainLooper());
+        Handler handler = new Handler();
         handler.post(() -> iDownload.onDownloadDone(bitmap, urlSingleImage));
     }
 
