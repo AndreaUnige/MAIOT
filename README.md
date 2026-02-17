@@ -5,6 +5,7 @@ __Software disponibile:__
   - __Empty Activity__: semplice App di _Hello World_; Link: https://github.com/AndreaUnige/MAIOT/tree/EmptyActivity
   - __Esempio Views__: App che illustra i principi fondamentali relativi alla gestione del layout e dei principali Widgets; Link: https://github.com/AndreaUnige/MAIOT/tree/EsempioViews
   - __Passaggio dati tra Activities__: scopo di questa App è illustrare le diverse modalità con cui Activities differenti possono comunicare e scambiare dati; Link: https://github.com/AndreaUnige/MAIOT/tree/PassaggioTraActivities
+  - __Passaggio dati tra Fragments__: scopo di questa App è illustrare come Fragments differenti possono comunicare e scambiare dati; Link: https://github.com/AndreaUnige/MAIOT/tree/FragmentsExample
   - __Broadcast Receiver__: semplice App che fornisce un semplice esempio del funzionamento di un Broadcast Receiver. Link: https://github.com/AndreaUnige/MAIOT/tree/BroadcastReceiver
   - __Accelerometro__: semplice App mono-activity che aggancia il sensore accelerometrico del telefono e mostra in tempo reale (tramite TextViews) i valori di accelerazione lungo i 3 assi (x, y, z) espressi in m/s^2. Link: https://github.com/AndreaUnige/MAIOT/tree/Accelerometro
   - __AudioRecorder__: App mono-activity che fornisce implementa un registratore audio. All'avvio del registratore vengono acquisiti campioni PCM (16 bit), disponibili come array di short all'interno del codice, successivamente salvati dentro un file .wav. Link: https://github.com/AndreaUnige/MAIOT/tree/AudioRecorder
