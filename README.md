@@ -14,7 +14,7 @@ Il download avviene sempre (indipendentemente dal fatto che l'utente abbia scelt
 <h3>Osservazione</h3>
 Android prevedeva una classe <i>ad-hoc</i> per operazioni in backgroud denominata AsyncTask che però ad oggi è deprecata. Sebbene ancora funzionante, è sconsigliato utilizzarla. Pertanto, l'app è implementata attraverso l'uso di Thread ed interfacce per la gestione delle callback.<br/><br/>
 
-<h3>URLS delle immagini da scaricare</h3>
+<h3>Immagini da scaricare</h3>
 
 
  ```
