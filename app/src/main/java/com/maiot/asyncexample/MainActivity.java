@@ -10,7 +10,8 @@ import android.widget.TextView;
 
 
 import com.maiot.asyncexample.interfaces.IDownload;
-import com.maiot.asyncexample.misc.ImagesURLs;
+import com.maiot.asyncexample.misc.ImagesToDownload;
+import com.maiot.asyncexample.misc.SingleImage;
 import com.maiot.asyncexample.processing.InBackgroundTask;
 
 public class MainActivity extends AppCompatActivity implements IDownload {
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements IDownload {
             bttParallel.setEnabled(false);
 
             startTimeInMillis = System.currentTimeMillis();
-            myInBackgroundTask.doSequentialDownload(ImagesURLs.URLs);
+            myInBackgroundTask.doSequentialDownload(ImagesToDownload.Images);
         });
 
 
@@ -50,15 +51,14 @@ public class MainActivity extends AppCompatActivity implements IDownload {
             bttParallel.setEnabled(false);
 
             startTimeInMillis = System.currentTimeMillis();
-            myInBackgroundTask.doParallelDownload(ImagesURLs.URLs);
+            myInBackgroundTask.doParallelDownload(ImagesToDownload.Images);
         });
 
     }
 
     @Override
-    public void onDownloadDone(Bitmap bitmap, String urlDone) {
-        int imageIndex = ImagesURLs.getIndex(urlDone);
-        setTheImage(bitmap, imageIndex);
+    public void onDownloadDone(Bitmap bitmap, SingleImage imageDone) {
+        setTheImage(bitmap, imageDone.getId());
 
         if (allImagesHaveBeenDownloaded()) {
             tvStatus.setText("ALL DONE !");
@@ -70,11 +70,6 @@ public class MainActivity extends AppCompatActivity implements IDownload {
             bttParallel.setEnabled(true);
         }
     }
-
-
-
-
-
 
     private void initViews() {
         tvStatus = findViewById(R.id.tvStatus);

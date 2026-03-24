@@ -1,50 +1,48 @@
 package com.maiot.asyncexample.processing;
 
-import android.app.Activity;
-import android.graphics.Bitmap;
 import android.util.Log;
-
 import com.maiot.asyncexample.interfaces.IDownload;
+import com.maiot.asyncexample.misc.SingleImage;
 
-public class InBackgroundTask implements IDownload {
+public class InBackgroundTask {
 
     private final String TAG = "BackTask";
     private IDownload iDownload;
 
-    public InBackgroundTask(Activity activity)
+    public InBackgroundTask(IDownload iDownload)
     {
         Log.i(TAG, "BackTask()");
-        this.iDownload = (IDownload) activity;
+        this.iDownload = iDownload;
     }
 
-    public void doSequentialDownload(String[] urlImagesToDownload) {
+    private IDownload myCallback = (bitmap, imageDone) -> {
+        Log.i("Download", "Finished: " + imageDone);
+        iDownload.onDownloadDone(bitmap, imageDone);
+    };
+
+    public void doSequentialDownload(SingleImage[] imagesToDownload) {
         Log.i(TAG, "doSequentialDownload()");
 
         // On Pre Execution
         onPreExecute();
 
         new Thread(() -> {
-            for (String urlSingleImage : urlImagesToDownload)
-                new DownloadAndRotateImage(urlSingleImage, this).run();
+            for (SingleImage singleImage : imagesToDownload)
+                new DownloadAndRotateImage(singleImage, myCallback).run();
         }).start();
-}
+    }
 
-    public void doParallelDownload(String[] urlImagesToDownload) {
+    public void doParallelDownload(SingleImage[] imagesToDownload) {
         Log.i(TAG, "doDownload()");
 
         // On Pre Execution
         onPreExecute();
 
-        for (String urlSingleImage : urlImagesToDownload)
-            new Thread(new DownloadAndRotateImage(urlSingleImage, this)).start();
+        for (SingleImage singleImage : imagesToDownload)
+            new Thread(new DownloadAndRotateImage(singleImage, myCallback)).start();
     }
 
     private void onPreExecute() {
         Log.i(TAG, " onPreExecute()");
-    }
-
-    @Override
-    public void onDownloadDone(Bitmap bitmap, String urlDone) {
-        iDownload.onDownloadDone(bitmap, urlDone);
     }
 }

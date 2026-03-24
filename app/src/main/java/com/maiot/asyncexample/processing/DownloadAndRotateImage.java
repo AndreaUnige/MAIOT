@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.maiot.asyncexample.interfaces.IDownload;
+import com.maiot.asyncexample.misc.SingleImage;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +16,7 @@ import java.net.URL;
 
 public class DownloadAndRotateImage implements Runnable {
 
-    private String urlSingleImage;
+    private SingleImage singleImage;
     private IDownload iDownload;
 
     private Bitmap bitmap;
@@ -23,8 +24,8 @@ public class DownloadAndRotateImage implements Runnable {
     private final Matrix matrix = new Matrix();
     private final int NUMBER_OF_ROTATIONS = 100;
 
-    public DownloadAndRotateImage(String urlSingleImage, IDownload iDownload) {
-        this.urlSingleImage = urlSingleImage;
+    public DownloadAndRotateImage(SingleImage singleImage, IDownload iDownload) {
+        this.singleImage = singleImage;
         this.iDownload = iDownload;
 
         matrix.postRotate(90);
@@ -36,8 +37,8 @@ public class DownloadAndRotateImage implements Runnable {
         download_tryCatch();
         rotateIt(NUMBER_OF_ROTATIONS);
 
-        Handler handler = new Handler();
-        handler.post(() -> iDownload.onDownloadDone(bitmap, urlSingleImage));
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(() -> iDownload.onDownloadDone(bitmap, singleImage));
     }
 
     private void download_tryCatch() {
@@ -49,7 +50,7 @@ public class DownloadAndRotateImage implements Runnable {
     }
 
     private void download() throws IOException {
-        URL url = new URL(urlSingleImage);
+        URL url = new URL(singleImage.getImageUrl());
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setDoInput(true);
         connection.connect();
