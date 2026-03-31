@@ -17,6 +17,7 @@ import com.maiot.accelerometerexample.sensore.MyAccelerometer;
 public class MainActivity extends AppCompatActivity implements IDataAvailable {
 
     private final String TAG = "MainActivity";
+    private final int ROUND_N_DIGITS = 3;
 
     private Button bttStart = null, bttStop = null;
     private TextView tvX = null, tvY = null, tvZ = null;
@@ -58,13 +59,17 @@ public class MainActivity extends AppCompatActivity implements IDataAvailable {
 
     @Override
     public void onNewAccelerometerDataAvailable(float x, float y, float z) {
-        tvX.setText("X: " + x);
-        tvY.setText("Y: " + y);
-        tvZ.setText("Z: " + z);
+        tvX.setText("X: " + roundToNDecimal(ROUND_N_DIGITS, x));
+        tvY.setText("Y: " + roundToNDecimal(ROUND_N_DIGITS, y));
+        tvZ.setText("Z: " + roundToNDecimal(ROUND_N_DIGITS, z));
 
         plotter.addData(x, Plotter.X_AXIS);
         plotter.addData(y, Plotter.Y_AXIS);
         plotter.addData(z, Plotter.Z_AXIS);
+    }
+
+    private String roundToNDecimal(int nDecimals, float toRound) {
+        return String.format("%."+nDecimals+"f", toRound);
     }
 
 
