@@ -9,7 +9,7 @@ import org.jtransforms.fft.DoubleFFT_1D;
 public class Processor {
 
     short[] audioData;
-    double[] fft;
+    double[] fullFft_doubleSize;
     double[] fftAbs;
 
     double[] spectrum;
@@ -46,13 +46,9 @@ public class Processor {
         return frequencies;
     }
 
-
-
-
-
     private void doFFT() {
         prepareData();
-        doubleFFT1D.realForwardFull(fft);
+        doubleFFT1D.realForwardFull(fullFft_doubleSize);
     }
 
     private void computeSpectrum() {
@@ -62,18 +58,22 @@ public class Processor {
     }
 
     private void computefftAbs() {
-        dftLength = fft.length / 2;
+        dftLength = fullFft_doubleSize.length / 2;
         fftAbs = new double[dftLength];
 
         for (int i = 0; i < dftLength; i++)
-            fftAbs[i] = abs(fft[2*i], fft[2*i+1]);
+            fftAbs[i] = abs(fullFft_doubleSize[2*i], fullFft_doubleSize[2*i+1]);
     }
 
     private void takeFirstFftHalf() {
-        spectrumLength = (int) Math.ceil((float) dftLength /2);
+        spectrumLength = (int) Math.floor((float) dftLength /2) + 1; //floor[N/2] + 1
         spectrum = new double[spectrumLength];
+
         spectrum[0] = fftAbs[0];
-        for (int i = 1; i < spectrumLength-1; i++)
+        spectrum[spectrumLength-1] = fftAbs[spectrumLength-1];
+
+        int lastIndexToDouble = (int)Math.floor((float) (dftLength-1) / 2); //floor[(N-1)/2]
+        for (int i = 1; i < lastIndexToDouble; i++)
             spectrum[i] = fftAbs[i] * 2;
     }
 
@@ -94,11 +94,11 @@ public class Processor {
 
 
     private void prepareData() {
-        fft = new double[audioData.length * 2];
+        fullFft_doubleSize = new double[audioData.length * 2];
         doubleFFT1D = new DoubleFFT_1D(audioData.length);
 
         for (int i = 0; i < audioData.length; i++)
-            fft[i] = (float) audioData[i];
+            fullFft_doubleSize[i] = (float) audioData[i];
     }
 
 

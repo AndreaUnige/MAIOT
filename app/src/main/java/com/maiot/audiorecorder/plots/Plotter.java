@@ -11,7 +11,6 @@ import com.maiot.audiorecorder.misc.Utils;
 public class Plotter {
 
     private GraphView graph;
-
     private LineGraphSeries<DataPoint> line;
 
     public Plotter(GraphView graph, String title) {

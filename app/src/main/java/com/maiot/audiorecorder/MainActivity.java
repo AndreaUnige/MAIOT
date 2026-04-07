@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements IRecording {
 
         timePlotter = new Plotter(graphViewTime, "Time");
         frequencyPlotter = new Plotter(graphViewFreq, "Frequency");
+
         processor = new Processor(FS);
         
         bttStart.setOnClickListener( (v) -> {
@@ -64,9 +65,7 @@ public class MainActivity extends AppCompatActivity implements IRecording {
 
     @Override
     public void onRecordingDone(short[] audioData) {
-
         timePlotter.plot(audioData);
-
         processor.run(audioData);
 
         double[] frequencies = processor.getFrequencies();
