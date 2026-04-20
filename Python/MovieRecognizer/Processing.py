@@ -4,6 +4,9 @@ import numpy as np
 # https://davidsbatista.net/blog/2017/04/01/document_classification/
 class Processing:
 
+    ATTRIBUTES_NOT_TO_CONSIDER = ["Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary", "Drama", "Family", "Game-Show", "Musical", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Talk-Show", "Thriller"]
+
+
     df_movies = None
     titles = None
     np_movies = None
@@ -13,7 +16,9 @@ class Processing:
     def __init__(self, df_movies):
         self.df_movies = df_movies
         self.numMovies = self.df_movies.shape[0]
-        self.__prepare()
+
+        self.__extractTitles()
+        self.np_movies = self.__removeAttribute()
 
     def get_K_RecommendedMovies(self, toBeRecognize_AsNumPyArray, k):
         distances = self.__computeDistances(toBeRecognize_AsNumPyArray)
@@ -24,11 +29,14 @@ class Processing:
 
         return suggestedTitles, correspondantNormalizedScores
 
-
-    def __prepare(self):
+    def __extractTitles(self):
         self.titles = list(self.df_movies["title"])
-        movies_noTitle_noPlot = self.df_movies.drop(["title", "plot"], axis="columns")
-        self.np_movies = movies_noTitle_noPlot.to_numpy()
+
+    def __removeAttribute(self):
+        self.df_movies = self.df_movies.drop(["title", "plot"], axis="columns")
+        self.df_movies = self.df_movies.drop(self.ATTRIBUTES_NOT_TO_CONSIDER, axis="columns")
+
+        return self.df_movies.to_numpy()
 
     def __computeDistances(self, toBeRecognize_AsNumPyArray):
         toBeRecognizeTiled = np.tile(toBeRecognize_AsNumPyArray, (self.numMovies, 1))
