@@ -3,17 +3,16 @@ package com.andrea.moviessuggestor.JSON;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class MyJsonGenerator {
 
-    private HashMap<String, Integer> movieFeatures;
+    private Map<String, Integer> movieFeatures;
     private int k;
 
     private JSONObject json = new JSONObject();
 
-    public MyJsonGenerator(HashMap<String, Integer> movieFeatures, int k) {
+    public MyJsonGenerator(Map<String, Integer> movieFeatures, int k) {
         this.movieFeatures = movieFeatures;
         this.k = k;
     }

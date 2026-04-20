@@ -2,6 +2,7 @@ package com.andrea.moviessuggestor.network;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.andrea.moviessuggestor.interfaces.IRequestStatus;
 import com.andrea.moviessuggestor.misc.Constants;
@@ -49,13 +50,14 @@ public class MyHttpRequest {
     private void createRequest(JSONObject body) {
         request = new StringRequest(Request.Method.POST, Constants.getServerFullUrl(),
                 response -> {
-                     if (networkDoesReturnError())
+                     if (networkResponseCode != HTTP__OK)
                          return;
 
-                    handleTheRequest(response);
+                    iRequestStatus.onResultAvailable(response);
                 },
 
                 error -> {
+                    Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
                     Log.i(TAG, "onErrorResponse: " + error.toString());
                 }) {
 
@@ -71,19 +73,9 @@ public class MyHttpRequest {
             }
 
             @Override
-            public byte[] getBody() throws AuthFailureError {
-                return body.toString().getBytes(StandardCharsets.UTF_8);
-            }
+            public byte[] getBody() { return body.toString().getBytes(StandardCharsets.UTF_8); }
         };
     }
 
 
-    private boolean networkDoesReturnError() {
-        return networkResponseCode != HTTP__OK;
-    }
-
-    private void handleTheRequest(String response) {
-        Log.i("", response);
-        iRequestStatus.onResultAvailable(response);
-    }
 }
