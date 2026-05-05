@@ -1,5 +1,7 @@
 package com.andrea.wekaj48.J48;
 
+import com.andrea.wekaj48.misc.Constants;
+
 import java.util.ArrayList;
 
 import weka.core.Attribute;

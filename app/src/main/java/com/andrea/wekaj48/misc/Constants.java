@@ -1,4 +1,4 @@
-package com.andrea.wekaj48.J48;
+package com.andrea.wekaj48.misc;
 
 import weka.core.Attribute;
 

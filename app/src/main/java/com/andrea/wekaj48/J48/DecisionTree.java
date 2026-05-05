@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.andrea.wekaj48.interfaces.IMachineLearningAlgorithm;
 import com.andrea.wekaj48.interfaces.IPrediction;
+import com.andrea.wekaj48.misc.Constants;
 
 import java.io.InputStream;
 
@@ -15,7 +16,7 @@ import weka.core.SerializationHelper;
 
 public class DecisionTree implements IMachineLearningAlgorithm {
 
-    private J48 myTree = null;
+    private J48 myClassifier = null;  // Change here for another classifier!
     private Context context;
 
     private Data data;
@@ -32,7 +33,7 @@ public class DecisionTree implements IMachineLearningAlgorithm {
     public void loadModel () {
         try {
             InputStream is = context.getAssets().open(Constants.MODEL);
-            this.myTree = (J48) SerializationHelper.read(is);
+            this.myClassifier = (J48) SerializationHelper.read(is);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -55,7 +56,7 @@ public class DecisionTree implements IMachineLearningAlgorithm {
     private void classify() {
         double result;
         try {
-            result = myTree.classifyInstance(data.getTheInstance());
+            result = myClassifier.classifyInstance(data.getTheInstance());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
