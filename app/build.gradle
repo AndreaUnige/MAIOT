@@ -1,0 +1,63 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+}
+
+android {
+    namespace 'com.andrea.wekaj48'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.andrea.wekaj48"
+        minSdk 30
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        excludes += "/META-INF/LICENSE*"
+        excludes += "/META-INF/NOTICE*"
+        excludes += "/META-INF/DEPENDENCIES"
+        excludes += "/META-INF/ASL2.0"
+        excludes += "/META-INF/sun-jaxb.properties"
+        // Se l'errore persiste specificamente per .md:
+        excludes += "/META-INF/LICENSE.md"
+        excludes += "/META-INF/NOTICE.md"
+    }
+}
+
+dependencies {
+    implementation('nz.ac.waikato.cms.weka:weka-stable:3.8.6') {
+        exclude group: 'com.github.vbmacher', module: 'java-cup'
+        exclude group: 'jakarta.activation', module: 'jakarta.activation-api'
+        exclude group: 'com.sun.activation', module: 'jakarta.activation'
+    }
+    implementation 'com.github.vbmacher:java-cup-runtime:11b-20160615'
+
+    // Aggiungiamo solo le versioni runtime necessarie e pulite per Android
+    implementation 'com.github.vbmacher:java-cup-runtime:11b-20160615'
+    implementation 'jakarta.activation:jakarta.activation-api:1.2.2'
+
+
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}

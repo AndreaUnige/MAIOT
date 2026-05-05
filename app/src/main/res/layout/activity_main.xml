@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weka J48 Classifier"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
+    <EditText
+        android:id="@+id/etPetalWidth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Petal Width"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
+
+
+    <EditText
+        android:id="@+id/etPetalLenght"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Petal Lenght"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/etSepalWidth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sepal Width"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
+
+
+    <EditText
+        android:id="@+id/etSepalLenght"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sepal Lenght"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
+
+
+    <Button
+        android:id="@+id/bttPrediction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Esegui Predizione"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Risultato: -"
+        android:textSize="18sp"
+        android:textStyle="italic"/>
+
+</LinearLayout>
