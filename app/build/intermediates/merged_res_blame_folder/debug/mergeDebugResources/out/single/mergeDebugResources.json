@@ -56,12 +56,12 @@
         "source": "/home/andrea/.gradle/daemon/8.4/com.andrea.neuralnetimagerecognition.app-main-33:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/home/andrea/.gradle/daemon/8.4/com.andrea.neuralnetimagerecognition.app-debug-31:/mipmap-anydpi_ic_launcher.xml.flat",
-        "source": "/home/andrea/.gradle/daemon/8.4/com.andrea.neuralnetimagerecognition.app-main-33:/mipmap-anydpi/ic_launcher.xml"
-    },
-    {
         "merged": "/home/andrea/.gradle/daemon/8.4/com.andrea.neuralnetimagerecognition.app-debug-31:/layout_activity_main.xml.flat",
         "source": "/home/andrea/.gradle/daemon/8.4/com.andrea.neuralnetimagerecognition.app-main-33:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/andrea/.gradle/daemon/8.4/com.andrea.neuralnetimagerecognition.app-debug-31:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "/home/andrea/.gradle/daemon/8.4/com.andrea.neuralnetimagerecognition.app-main-33:/mipmap-anydpi/ic_launcher.xml"
     },
     {
         "merged": "/home/andrea/.gradle/daemon/8.4/com.andrea.neuralnetimagerecognition.app-debug-31:/mipmap-hdpi_ic_launcher_round.webp.flat",

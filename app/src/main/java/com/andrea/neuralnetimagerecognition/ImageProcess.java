@@ -2,8 +2,10 @@ package com.andrea.neuralnetimagerecognition;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Looper;
 
-import com.andrea.neuralnetimagerecognition.misc.Constants;
+import com.andrea.neuralnetimagerecognition.interfaces.IRecognition;
 import com.andrea.neuralnetimagerecognition.ml.Model;
 
 import org.tensorflow.lite.DataType;
@@ -12,22 +14,20 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.HashMap;
-
 
 // Open the 'model.tflite' to see a basic example from which this code is taken
 public class ImageProcess {
 
     private final Context context;
+    private IRecognition iRecognition;
+
     private final Bitmap theImageToProcess;
 
     private Bitmap squaredImage;
 
-
     private Model model;
     private TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(Constants.NEURAL_NET_SIZE, DataType.FLOAT32);
     private ByteBuffer byteBuffer;
-
 
     private float[] modelConfidenceValues;
     private float maxConfidenceValue = 0.0f;
@@ -35,6 +35,8 @@ public class ImageProcess {
 
     public ImageProcess(Context context, Bitmap theImageToProcess) {
         this.context = context;
+        this.iRecognition = (IRecognition) context;
+
         this.theImageToProcess = theImageToProcess;
 
         try {
@@ -51,22 +53,28 @@ public class ImageProcess {
     public int getMaxConfidenceIndex() {
         return maxConfidenceIndex;
     }
-
     public float getMaxConfidenceValue() {
         return maxConfidenceValue;
     }
-
     public float[] getModelConfidenceValues() {
         return modelConfidenceValues;
     }
 
+    // If the class extends Thread \\
+//    @Override
+//    public void run() {
+//        preProcess();
+//        process();
+//        postProcess();
+//    }
 
     public void run() {
-        preProcess();
-        process();
-        postProcess();
+        new Thread( () -> {
+            preProcess();
+            process();
+            postProcess();
+        }).start();
     }
-
 
     private void preProcess() {
         byteBuffer.clear();
@@ -85,11 +93,21 @@ public class ImageProcess {
     private void postProcess() {
         compute_ConfidenceMax_ConfidenceArgMax();
         model.close();
+
+        Handler h = new Handler(Looper.getMainLooper());
+        h.post( () -> {
+            iRecognition.onRecognitionDone();
+        });
+
     }
 
-
-
-
+    private void compute_ConfidenceMax_ConfidenceArgMax() {
+        for (int i = 0; i < modelConfidenceValues.length; i++)
+            if (modelConfidenceValues[i] > maxConfidenceValue) {
+                maxConfidenceIndex = i;
+                maxConfidenceValue = modelConfidenceValues[i];
+            }
+    }
 
     private int getNumBytePerImage () {
         int nPixelsPerImage = Constants.IMAGE_SIZE * Constants.IMAGE_SIZE;
@@ -113,27 +131,14 @@ public class ImageProcess {
     private int extractBlue(int rgbPixelValue) {
         return applyBitmask(rgbPixelValue);
     }
-
     private int extractGreen(int rgbPixelValue) {
         return applyBitmask(rgbPixelValue >> 8);
     }
-
     private int extractRed(int rgbPixelValue) {
         return applyBitmask(rgbPixelValue >> 16);
     }
-
     private int applyBitmask (int rgbPixelValue) {
         return rgbPixelValue & 0xFF;
     }
-
-
-    private void compute_ConfidenceMax_ConfidenceArgMax() {
-        for (int i = 0; i < modelConfidenceValues.length; i++)
-            if (modelConfidenceValues[i] > maxConfidenceValue) {
-                maxConfidenceIndex = i;
-                maxConfidenceValue = modelConfidenceValues[i];
-            }
-    }
-
 
 }

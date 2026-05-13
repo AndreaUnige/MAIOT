@@ -8,9 +8,7 @@ id bttGallery
 id bttTakePicture
 id ivImage
 id tvClassification
-id tvDetails
 layout activity_main
-layout other_activity
 mipmap ic_launcher
 mipmap ic_launcher_round
 string OTHER_ACTIVITY

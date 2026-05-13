@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.ImageDecoder;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Button;
@@ -22,22 +21,22 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.andrea.neuralnetimagerecognition.misc.Constants;
+import com.andrea.neuralnetimagerecognition.interfaces.IRecognition;
 
 import java.io.IOException;
 
 // CAMERA WITH registerForActivityResult -> https://www.youtube.com/watch?v=JMdHMMEO8ZQ&ab_channel=MSCode009
-// YOUTUBE VIDEO -> https://www.youtube.com/watch?v=yV9nrRIC_R0&ab_channel=IJApps
+// YOUTUBE VIDEOS -> https://www.youtube.com/watch?v=yV9nrRIC_R0&ab_channel=IJApps
+//                -> https://www.youtube.com/watch?v=ba42uYJd8nc&ab_channel=IJApps
 // COLAB NEURAL NET -> https://colab.research.google.com/drive/1XHNNYwDYYoaJaQVCy1uIeKqErXTYpwLu?usp=sharing
 
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IRecognition {
 
     private final static String TAG = "MainActivity";
 
     private Button bttTakePicture, bttGallery;
     private ImageView ivImage;
-    private TextView tvClassification, tvDetails;
+    private TextView tvClassification;
 
     private ActivityResultLauncher<Intent> arlTakePhoto;
     private ActivityResultLauncher<String> arlFromGallery;
@@ -54,49 +53,40 @@ public class MainActivity extends AppCompatActivity {
 
         arlTakePhoto = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        if ((result.getResultCode() != RESULT_OK) || (result.getData() == null ))
-                            return;
+                result -> {
+                    if ((result.getResultCode() != RESULT_OK) || (result.getData() == null ))
+                        return;
 
-                        Bundle bundle = result.getData().getExtras();
-                        Bitmap bitmap = (Bitmap) bundle.get("data");
+                    Bundle bundle = result.getData().getExtras();
+                    Bitmap bitmap = (Bitmap) bundle.get("data");
 
-                        setBitmapToImageView(bitmap);
-                        recognize(bitmap);                    }
+                    ivImage.setImageBitmap(bitmap);
+                    recognize(bitmap);
                 }
         );
 
         arlFromGallery = registerForActivityResult(
                 new ActivityResultContracts.GetContent(),
-                new ActivityResultCallback<Uri>() {
-                    @Override
-                    public void onActivityResult(Uri pictureURI) {
-                        if (pictureURI == null)
-                            return;
+                pictureURI -> {
+                    if (pictureURI == null)
+                        return;
 
-                        ContentResolver contentResolver = getContentResolver();
-                        try {
-                            Bitmap bitmap = ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, pictureURI),
-                                    (imageDecoder, imageInfo, source1) -> imageDecoder.setMutableRequired(true));
+                    ContentResolver contentResolver = getContentResolver();
+                    try {
+                        Bitmap bitmap = ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, pictureURI),
+                                (imageDecoder, imageInfo, source1) -> imageDecoder.setMutableRequired(true));
 
-                            setBitmapToImageView(bitmap);
-                            recognize(bitmap);
+                        ivImage.setImageBitmap(bitmap);
+                        recognize(bitmap);
 
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
                 }
         );
 
-
         bttTakePicture.setOnClickListener( (v) -> {
-            if (cameraPermissionGranted())
                 arlTakePhoto.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
-            else
-                requestPermissions(new String[] {Manifest.permission.CAMERA}, Constants.CAMERA_PERMISSION);
         });
 
 
@@ -106,36 +96,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    private boolean cameraPermissionGranted() {
-        return (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED);
-    }
-
     private void initViews() {
         bttTakePicture = findViewById(R.id.bttTakePicture);
         bttGallery = findViewById(R.id.bttGallery);
 
         ivImage = findViewById(R.id.ivImage);
-
         tvClassification = findViewById(R.id.tvClassification);
-        tvDetails = findViewById(R.id.tvDetails);
     }
 
-
-
-    private void setBitmapToImageView(Bitmap bitmap) {
-        ivImage.setImageBitmap(bitmap);
-    }
 
     private void recognize(Bitmap bitmap) {
-        imageProcess = new ImageProcess(getApplicationContext(), bitmap);
+        imageProcess = new ImageProcess(this, bitmap);
         imageProcess.run();
-
-        postResultToScreen();
-
     }
 
-    private void postResultToScreen() {
+
+    @Override
+    public void onRecognitionDone() {
         float maxConfidence = imageProcess.getMaxConfidenceValue();
         int argMaxConfidence = imageProcess.getMaxConfidenceIndex();
 
@@ -146,4 +123,4 @@ public class MainActivity extends AppCompatActivity {
         tvClassification.setText(result);
     }
 
-}
+ }
